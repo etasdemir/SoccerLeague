@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Soccer League</string>
+
+    <string name="fap_fixture">FIXTURE</string>
 </resources>
