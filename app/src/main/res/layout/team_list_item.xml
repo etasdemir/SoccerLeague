@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/medium_margin"
+            android:paddingStart="@dimen/large_margin"
+            android:paddingEnd="@dimen/large_margin">
+
+            <ImageView
+                android:id="@+id/img_team_logo"
+                android:layout_width="@dimen/team_logo_size"
+                android:layout_height="@dimen/team_logo_size"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/txt_team_name"
+                style="@style/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_team_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_team_logo"
+                app:layout_constraintTop_toTopOf="@+id/img_team_logo"
+                tools:text="SOME TEAM NAME" />
+
+            <TextView
+                android:id="@+id/txt_team_stadium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/txt_team_name"
+                app:layout_constraintStart_toStartOf="@+id/txt_team_name"
+                app:layout_constraintTop_toBottomOf="@+id/txt_team_name"
+                tools:text="STADIUM" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
