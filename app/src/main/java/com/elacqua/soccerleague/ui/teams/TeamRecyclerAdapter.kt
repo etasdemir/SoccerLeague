@@ -3,10 +3,9 @@ package com.elacqua.soccerleague.ui.teams
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.elacqua.soccerleague.data.remote.model.FootballTeam
 import com.elacqua.soccerleague.databinding.TeamListItemBinding
-import timber.log.Timber
+import com.elacqua.soccerleague.utils.Helper
 
 class TeamRecyclerAdapter : RecyclerView.Adapter<TeamRecyclerAdapter.TeamViewHolder>() {
 
@@ -36,10 +35,7 @@ class TeamRecyclerAdapter : RecyclerView.Adapter<TeamRecyclerAdapter.TeamViewHol
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind() {
-            Timber.e("crest url: ${teams[adapterPosition].crestUrl}")
-            Glide.with(binding.imgTeamLogo)
-                .load(teams[adapterPosition].crestUrl)
-                .into(binding.imgTeamLogo)
+            Helper.loadImage(teams[adapterPosition].crestUrl, binding.imgTeamLogo)
             binding.txtTeamName.text = teams[adapterPosition].shortName
             binding.txtTeamStadium.text = teams[adapterPosition].venue
         }

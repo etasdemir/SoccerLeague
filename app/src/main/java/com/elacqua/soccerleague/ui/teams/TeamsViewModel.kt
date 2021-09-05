@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 
 class TeamsViewModel : ViewModel() {
 
-    private val _footballResonse = MutableLiveData<FootballResponse>()
-    val footballResponse: LiveData<FootballResponse> = _footballResonse
+    private val _footballResponse = MutableLiveData<FootballResponse>()
+    val footballResponse: LiveData<FootballResponse> = _footballResponse
 
     init {
         getTeams()
@@ -22,7 +22,7 @@ class TeamsViewModel : ViewModel() {
     private fun getTeams() {
         viewModelScope.launch(Dispatchers.IO) {
             val result = FootballApi.getFootballService().getTeams(Constants.BUNDESLIGA_ID)
-            _footballResonse.postValue(result)
+            _footballResponse.postValue(result)
         }
     }
 }

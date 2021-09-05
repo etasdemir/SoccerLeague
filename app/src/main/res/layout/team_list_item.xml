@@ -19,7 +19,7 @@
                 android:id="@+id/img_team_logo"
                 android:layout_width="@dimen/team_logo_size"
                 android:layout_height="@dimen/team_logo_size"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
