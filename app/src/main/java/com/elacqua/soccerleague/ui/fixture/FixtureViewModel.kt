@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.elacqua.soccerleague.data.remote.FootballApi
+import com.elacqua.soccerleague.data.remote.RemoteRepository
 import com.elacqua.soccerleague.data.remote.model.FootballResponse
 import com.elacqua.soccerleague.utils.Constants
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +21,7 @@ class FixtureViewModel : ViewModel() {
 
     private fun getTeams() {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = FootballApi.getFootballService().getTeams(Constants.BUNDESLIGA_ID)
+            val result = RemoteRepository.getTeams(Constants.BUNDESLIGA_ID)
             _footballResponse.postValue(result)
         }
     }
