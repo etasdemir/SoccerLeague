@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.elacqua.soccerleague.core.MatchMaker
 import com.elacqua.soccerleague.data.remote.model.FootballResponse
 import com.elacqua.soccerleague.databinding.FixtureFragmentBinding
 
@@ -20,6 +21,7 @@ class FixtureFragment : Fragment() {
 
         viewModel.footballResponse.observe(viewLifecycleOwner, { response ->
             initViewPager(response)
+            val weeklyMatchesPair = MatchMaker.getFixtureByWeek(response.teams)
         })
     }
 

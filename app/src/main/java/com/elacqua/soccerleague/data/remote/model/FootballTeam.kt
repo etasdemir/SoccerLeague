@@ -32,4 +32,8 @@ data class FootballTeam(
     val venue: String = "",
     @SerializedName("website")
     val website: String = ""
-)
+) {
+    override fun toString(): String {
+        return "team: $shortName"
+    }
+}
