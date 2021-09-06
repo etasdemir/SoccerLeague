@@ -9,6 +9,7 @@
         android:background="#f5f5f5">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:paddingHorizontal="@dimen/small_margin"
             android:id="@+id/rv_week_matches"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

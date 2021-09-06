@@ -8,5 +8,5 @@
     <dimen name="extra_small_margin">4dp</dimen>
 
     <dimen name="team_logo_size">100dp</dimen>
-    <dimen name="team_small_logo_size">50dp</dimen>
+    <dimen name="team_small_logo_size">40dp</dimen>
 </resources>

@@ -18,7 +18,7 @@
                 android:id="@+id/txt_match_item_league_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginStart="@dimen/small_margin"
                 android:layout_marginTop="@dimen/small_margin"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -38,7 +38,7 @@
                 android:id="@+id/txt_match_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginStart="@dimen/medium_margin"
                 android:layout_marginTop="@dimen/medium_margin"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_match_item_league_name"
@@ -66,18 +66,19 @@
 
             <TextView
                 android:id="@+id/txt_match_away"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginHorizontal="@dimen/large_margin"
                 app:layout_constraintBottom_toBottomOf="@+id/img_match_away"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/img_match_away"
                 app:layout_constraintTop_toTopOf="@+id/img_match_away"
                 tools:text="Away Team" />
 
             <TextView
                 android:id="@+id/match_seperator"
-                android:layout_width="20dp"
-                android:layout_height="4dp"
+                android:layout_width="12dp"
+                android:layout_height="2dp"
                 android:layout_marginHorizontal="@dimen/medium_margin"
                 android:background="@color/separator"
                 app:layout_constraintBottom_toBottomOf="@+id/img_match_home"
