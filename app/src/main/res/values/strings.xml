@@ -3,4 +3,7 @@
 
     <string name="fap_fixture">FIXTURE</string>
     <string name="league_name">%1$s Teams</string>
+    <string name="first_half">First</string>
+    <string name="second_half">Second</string>
+    <string name="week_title">Week %1$d %2$s Half</string>
 </resources>

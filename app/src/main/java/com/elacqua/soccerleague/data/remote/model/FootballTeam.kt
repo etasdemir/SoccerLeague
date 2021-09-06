@@ -1,8 +1,11 @@
 package com.elacqua.soccerleague.data.remote.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class FootballTeam(
     @SerializedName("address")
     val address: String = "",
@@ -32,7 +35,7 @@ data class FootballTeam(
     val venue: String = "",
     @SerializedName("website")
     val website: String = ""
-) {
+) : Parcelable {
     override fun toString(): String {
         return "team: $shortName"
     }

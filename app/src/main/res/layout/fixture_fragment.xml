@@ -1,16 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.elacqua.soccerleague.ui.fixture.FixtureFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.fixture.FixtureFragment">
 
+        <TextView
+            android:id="@+id/txt_week_title"
+            style="@style/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="WEEK TITLE"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_week_go_next"
+            app:layout_constraintEnd_toStartOf="@+id/btn_week_go_next"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_week_go_back"
+            app:layout_constraintTop_toTopOf="@+id/btn_week_go_next" />
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/weekPager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/medium_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_week_title">
 
-    </RelativeLayout>
+        </androidx.viewpager2.widget.ViewPager2>
+
+        <ImageButton
+            android:id="@+id/btn_week_go_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:onClick="@{() -> presenter.goBack()}"
+            android:src="@drawable/ic_arrow_back_black"
+            android:layout_marginVertical="@dimen/extra_small_margin"
+            app:layout_constraintEnd_toStartOf="@+id/txt_week_title"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_week_go_next"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:onClick="@{() -> presenter.goNext()}"
+            android:src="@drawable/ic_arrow_next_black"
+            android:layout_marginVertical="@dimen/extra_small_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txt_week_title"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

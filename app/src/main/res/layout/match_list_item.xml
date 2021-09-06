@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/small_margin"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="@dimen/small_margin">
+
+            <TextView
+                android:id="@+id/txt_match_item_league_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Bundesliga" />
+
+            <TextView
+                android:id="@+id/txt_match_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:text="7:30PM"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_match_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_match_item_league_name"
+                tools:text="Home Team" />
+
+            <ImageView
+                android:id="@+id/img_match_home"
+                android:layout_width="@dimen/team_small_logo_size"
+                android:layout_height="@dimen/team_small_logo_size"
+                android:layout_marginStart="@dimen/large_margin"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_match_home"
+                app:layout_constraintStart_toEndOf="@+id/txt_match_home"
+                app:layout_constraintTop_toTopOf="@+id/txt_match_home"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/img_match_away"
+                android:layout_width="@dimen/team_small_logo_size"
+                android:layout_height="@dimen/team_small_logo_size"
+                android:layout_marginStart="@dimen/medium_margin"
+                app:layout_constraintBottom_toBottomOf="@+id/match_seperator"
+                app:layout_constraintStart_toEndOf="@+id/match_seperator"
+                app:layout_constraintTop_toTopOf="@+id/match_seperator"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/txt_match_away"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                app:layout_constraintBottom_toBottomOf="@+id/img_match_away"
+                app:layout_constraintStart_toEndOf="@+id/img_match_away"
+                app:layout_constraintTop_toTopOf="@+id/img_match_away"
+                tools:text="Away Team" />
+
+            <TextView
+                android:id="@+id/match_seperator"
+                android:layout_width="20dp"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="@dimen/medium_margin"
+                android:background="@color/separator"
+                app:layout_constraintBottom_toBottomOf="@+id/img_match_home"
+                app:layout_constraintStart_toEndOf="@+id/img_match_home"
+                app:layout_constraintTop_toTopOf="@+id/img_match_home" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
