@@ -4,13 +4,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.elacqua.soccerleague.R
+import com.elacqua.soccerleague.customview.DayNightSwitch
 import com.elacqua.soccerleague.databinding.TeamsFragmentBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
+private const val IS_DARK_MODE_ON = "IS_DARK_MODE_ON"
 
 class TeamsFragment : Fragment() {
 
@@ -21,8 +30,34 @@ class TeamsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        savedInstanceState.let {
+            val isDarkModeChecked = it?.getBoolean(IS_DARK_MODE_ON) ?: false
+            if (isDarkModeChecked) {
+                binding!!.teamsSwitchDayNight.isChecked = true
+                binding!!.teamsSwitchDayNight.animateToCheckedState()
+            }
+        }
+        listenDayNightSwitch()
         initRecyclerView()
         observerTeams()
+    }
+
+    private fun listenDayNightSwitch() {
+        binding!!.teamsSwitchDayNight.onCheckedChangeListener =
+            object : DayNightSwitch.OnCheckedChangeListener {
+                override fun onCheckedChanged(s: DayNightSwitch?, isChecked: Boolean) {
+                    lifecycleScope.launch {
+                        delay(binding!!.teamsSwitchDayNight.duration.toLong())
+                        withContext(Dispatchers.Main) {
+                            if (isChecked) {
+                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                            } else {
+                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                            }
+                        }
+                    }
+                }
+            }
     }
 
     private fun initRecyclerView() {
@@ -60,6 +95,11 @@ class TeamsFragment : Fragment() {
 
     fun navigateToFixtureFragment() {
         findNavController().navigate(R.id.action_teamsFragment_to_fixtureFragment)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBoolean(IS_DARK_MODE_ON, binding!!.teamsSwitchDayNight.isChecked)
+        super.onSaveInstanceState(outState)
     }
 
     override fun onCreateView(
