@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.elacqua.soccerleague.data.remote.model.FootballTeam
 import com.elacqua.soccerleague.databinding.WeekFragmentBinding
 import com.elacqua.soccerleague.utils.Constants
-import timber.log.Timber
 
 class WeekFragment : Fragment() {
 
@@ -53,7 +52,6 @@ class WeekFragment : Fragment() {
             val awayTeams = it.getParcelableArrayList<FootballTeam>(Constants.WEEK_MATCH_PARAM_AWAY)
                 ?: emptyList()
             val size = Math.max(homeTeams.size, awayTeams.size)
-            Timber.e("matches size: $size")
             for (i in 0 until size) {
                 matches.add(arrayOf(homeTeams[i], awayTeams[i]))
             }
