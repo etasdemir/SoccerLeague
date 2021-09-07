@@ -1,5 +1,5 @@
 
-# # Soccer League
+# Soccer League
 
 Soccer league is an Android application for managing league matches. Selected league teams can be viewed. By using every team in the league, a weekly match fixture will be made. There will be two half of the league. If Team A plays against Team B on the home side for the first half, Team A will be away side at the second half of the league. Every team matched with others exactly once. 
 League and team information are taken from https://www.football-data.org/
